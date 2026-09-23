@@ -1,0 +1,25 @@
+{
+  "name": "kabir-tw-project",
+  "version": "1.0.0",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "academic-survey",
+    "cognitive-offloading",
+    "generative-ai",
+    "technical-writing"
+  ],
+  "author": "Kabir",
+  "license": "ISC",
+  "description": "Technical Writing Empirical Survey on Generative AI and Memory Retention",
+  "dependencies": {
+    "cors": "^2.8.6",
+    "exceljs": "^4.4.0",
+    "express": "^5.2.1",
+    "path-is-absolute": "^1.0.1",
+    "xlsx": "^0.18.5"
+  }
+}

@@ -1,0 +1,12 @@
+# netlify.toml - Configuration for Netlify Deployment
+
+[build]
+  # Tell Netlify to publish files from the public directory
+  publish = "public"
+  # No build command needed for static files
+  command = ""
+
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200

@@ -1,0 +1,714 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI & Memory Retention Study | Kabir TW Project</title>
+  <meta name="description" content="A short survey on the impact of Generative AI on cognitive offloading and information retention among engineering students.">
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- FontAwesome for Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <!-- SheetJS for Client-Side Excel (.xlsx) Generation on Netlify -->
+  <script src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js"></script>
+
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- Background Decorative Mesh / Ambient Glow -->
+  <div class="blob-bg blob-1"></div>
+  <div class="blob-bg blob-2"></div>
+
+  <!-- Navigation Bar -->
+  <header class="navbar" id="main-nav">
+    <div class="nav-container">
+      <a href="#hero" class="brand-logo">
+        <div class="brand-icon"><i class="fa-solid fa-brain"></i></div>
+        <div class="brand-text">
+          <span class="brand-title">Research<span class="highlight">Survey</span></span>
+          <span class="brand-sub">Woxsen University &bull; Kabir</span>
+        </div>
+      </a>
+
+      <nav class="nav-links">
+        <a href="#about">About the Study</a>
+        <a href="#survey-section">Survey Questionnaire</a>
+      </nav>
+
+      <div class="nav-actions">
+        <a href="#survey-section" class="btn btn-primary btn-sm">
+          <i class="fa-solid fa-clipboard-check"></i> Take Survey
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero-section" id="hero">
+    <div class="container hero-container text-center">
+      <div class="badge-pill">
+        <span class="pulse-dot"></span>
+        <span>Technical Writing Research Project &bull; B.Tech Engineering</span>
+      </div>
+
+      <h1 class="hero-title">
+        The Impact of <span class="gradient-text">Generative AI</span> on Memory &amp; Study Habits
+      </h1>
+
+      <p class="hero-subtitle">
+        We are researching how tools like <strong>ChatGPT and Gemini</strong> influence long-term information retention and independent problem-solving among engineering students.
+      </p>
+
+      <div class="hero-cta-group justify-center">
+        <a href="#survey-section" class="btn btn-primary btn-lg pulse-hover">
+          <i class="fa-solid fa-pen-nib"></i> Start 2-Minute Survey
+        </a>
+        <a href="#about" class="btn btn-outline btn-lg">
+          <i class="fa-solid fa-circle-info"></i> Learn More
+        </a>
+      </div>
+
+      <!-- Quick Metrics Strip -->
+      <div class="quick-stats-strip">
+        <div class="quick-stat">
+          <i class="fa-solid fa-users"></i>
+          <div>
+            <span class="num" id="stat-total-responses">8</span>
+            <span class="lbl">Students Participated</span>
+          </div>
+        </div>
+        <div class="quick-stat-sep"></div>
+        <div class="quick-stat">
+          <i class="fa-solid fa-clock"></i>
+          <div>
+            <span class="num">2-3 Mins</span>
+            <span class="lbl">Quick Completion</span>
+          </div>
+        </div>
+        <div class="quick-stat-sep"></div>
+        <div class="quick-stat">
+          <i class="fa-solid fa-shield-check"></i>
+          <div>
+            <span class="num">Confidential</span>
+            <span class="lbl">Academic Research</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Brief About Section -->
+  <section class="section about-section" id="about">
+    <div class="container">
+      <div class="section-header text-center">
+        <span class="section-tag">PROJECT SUMMARY</span>
+        <h2 class="section-title">What is this Research About?</h2>
+        <p class="section-subtitle">
+          A quick look at the central questions behind this study by Kabir.
+        </p>
+      </div>
+
+      <div class="grid grid-3">
+        <div class="feature-card glass-panel">
+          <div class="card-icon gradient-icon-1"><i class="fa-solid fa-cloud-arrow-down"></i></div>
+          <h3>Cognitive Offloading</h3>
+          <p>
+            When we know answers are instantly available via AI, our brains tend to offload remembering technical details and syntax, trusting the tool to recall it later.
+          </p>
+        </div>
+
+        <div class="feature-card glass-panel">
+          <div class="card-icon gradient-icon-2"><i class="fa-solid fa-book-open"></i></div>
+          <h3>Depth vs. Instant Summaries</h3>
+          <p>
+            Before AI, students explored documentation, textbooks, and diverse forums. Today, instant summaries save time but may reduce deep conceptual exploration.
+          </p>
+        </div>
+
+        <div class="feature-card glass-panel">
+          <div class="card-icon gradient-icon-3"><i class="fa-solid fa-puzzle-piece"></i></div>
+          <h3>The Productive Struggle</h3>
+          <p>
+            Struggling through complex technical problems builds strong mental connections. This study examines if AI shortcuts are reducing our problem-solving stamina.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Survey Section (Section 3.2 Questionnaire) -->
+  <section class="section survey-section" id="survey-section">
+    <div class="container">
+      
+      <div class="section-header text-center">
+        <span class="section-tag section-tag-primary">STUDENT QUESTIONNAIRE</span>
+        <h2 class="section-title">Academic Habits &amp; AI Survey</h2>
+        <p class="section-subtitle">
+          Please answer honestly based on your personal academic experience. Takes under 3 minutes.
+        </p>
+      </div>
+
+      <!-- Informed Consent Box -->
+      <div class="consent-card glass-panel">
+        <div class="consent-icon"><i class="fa-solid fa-shield-halved"></i></div>
+        <div class="consent-content">
+          <h4>Informed Consent</h4>
+          <p>
+            This survey is conducted as part of the <strong>Industry-Integrated Technical Communication</strong> course project at Woxsen University. Your feedback will help us analyze real student learning patterns.
+          </p>
+          <label class="custom-checkbox">
+            <input type="checkbox" id="consent-checkbox" checked>
+            <span class="checkmark"></span>
+            <span class="label-text">I voluntarily consent to participate in this academic survey.</span>
+          </label>
+        </div>
+      </div>
+
+      <!-- Survey Form (Configured for Netlify Forms & Local API) -->
+      <div class="survey-form-wrapper glass-panel">
+        
+        <form id="tw-survey-form" name="academic_survey" method="POST" data-netlify="true" netlify novalidate>
+          <input type="hidden" name="form-name" value="academic_survey" />
+
+          <!-- Participant Identification -->
+          <div class="form-block">
+            <div class="block-header">
+              <span class="block-num"><i class="fa-solid fa-user"></i></span>
+              <div>
+                <h3>Student Information</h3>
+                <p class="block-desc">Please share your details to record your submission.</p>
+              </div>
+            </div>
+
+            <div class="grid grid-3 form-inputs-row">
+              <div class="form-group">
+                <label for="full_name" class="form-label">Full Name <span class="required">*</span></label>
+                <div class="input-with-icon">
+                  <i class="fa-solid fa-user"></i>
+                  <input type="text" id="full_name" name="full_name" class="form-control" placeholder="Your full name" required>
+                </div>
+                <span class="field-error" id="err-full_name"></span>
+              </div>
+
+              <div class="form-group">
+                <label for="course" class="form-label">Course / Engineering Branch <span class="required">*</span></label>
+                <div class="input-with-icon">
+                  <i class="fa-solid fa-graduation-cap"></i>
+                  <select id="course" name="course" class="form-control" required>
+                    <option value="" disabled selected>Select your branch...</option>
+                    <option value="B.Tech Computer Science & Engineering">B.Tech Computer Science &amp; Engineering</option>
+                    <option value="B.Tech AI & Data Science">B.Tech AI &amp; Data Science</option>
+                    <option value="B.Tech Cyber Security">B.Tech Cyber Security</option>
+                    <option value="B.Tech Electronics & Communication (ECE)">B.Tech Electronics &amp; Communication (ECE)</option>
+                    <option value="B.Tech Robotics & Artificial Intelligence">B.Tech Robotics &amp; AI</option>
+                    <option value="B.Tech Information Technology">B.Tech Information Technology</option>
+                    <option value="B.Tech Mechanical Engineering">B.Tech Mechanical Engineering</option>
+                    <option value="Other Engineering Program">Other Engineering Program</option>
+                  </select>
+                </div>
+                <span class="field-error" id="err-course"></span>
+              </div>
+
+              <div class="form-group">
+                <label for="phone_number" class="form-label">Phone Number (10 Digits) <span class="required">*</span></label>
+                <div class="input-with-icon">
+                  <i class="fa-solid fa-phone"></i>
+                  <input type="tel" id="phone_number" name="phone_number" class="form-control" placeholder="10-digit mobile number" maxlength="10" required>
+                </div>
+                <span class="field-error" id="err-phone_number"></span>
+              </div>
+            </div>
+          </div>
+
+          <hr class="form-divider">
+
+          <!-- Section A: Demographics & AI Usage -->
+          <div class="form-block">
+            <div class="block-header">
+              <span class="block-num">A</span>
+              <div>
+                <h3>Section A: Demographics &amp; AI Usage</h3>
+                <p class="block-desc">Basic academic year and frequency of AI usage.</p>
+              </div>
+            </div>
+
+            <!-- Question 1a -->
+            <div class="question-row">
+              <label class="q-title">
+                1a. What year of your B.Tech program are you currently in? <span class="required">*</span>
+              </label>
+              <div class="radio-pill-group">
+                <label class="radio-pill">
+                  <input type="radio" name="year_of_study" value="1st" required>
+                  <span>1st Year</span>
+                </label>
+                <label class="radio-pill">
+                  <input type="radio" name="year_of_study" value="2nd">
+                  <span>2nd Year</span>
+                </label>
+                <label class="radio-pill">
+                  <input type="radio" name="year_of_study" value="3rd">
+                  <span>3rd Year</span>
+                </label>
+                <label class="radio-pill">
+                  <input type="radio" name="year_of_study" value="4th">
+                  <span>4th Year</span>
+                </label>
+              </div>
+              <span class="field-error" id="err-year_of_study"></span>
+            </div>
+
+            <!-- Question 1b -->
+            <div class="question-row">
+              <label class="q-title">
+                1b. How often do you use Generative AI tools (like ChatGPT or Gemini) for academic research or assignments? <span class="required">*</span>
+              </label>
+              <div class="radio-pill-group">
+                <label class="radio-pill">
+                  <input type="radio" name="ai_usage_frequency" value="Daily" required>
+                  <span>Daily</span>
+                </label>
+                <label class="radio-pill">
+                  <input type="radio" name="ai_usage_frequency" value="Weekly">
+                  <span>Weekly</span>
+                </label>
+                <label class="radio-pill">
+                  <input type="radio" name="ai_usage_frequency" value="Rarely">
+                  <span>Rarely</span>
+                </label>
+                <label class="radio-pill">
+                  <input type="radio" name="ai_usage_frequency" value="Never">
+                  <span>Never</span>
+                </label>
+              </div>
+              <span class="field-error" id="err-ai_usage_frequency"></span>
+            </div>
+          </div>
+
+          <hr class="form-divider">
+
+          <!-- Section B: Memory & Retention (Before vs. Now) -->
+          <div class="form-block">
+            <div class="block-header">
+              <span class="block-num">B</span>
+              <div>
+                <h3>Section B: Memory &amp; Retention (Before vs. Now)</h3>
+                <p class="block-desc">Reflect on your memory and retention of technical concepts.</p>
+              </div>
+            </div>
+
+            <!-- Question 2a -->
+            <div class="question-row">
+              <label class="q-title">
+                2a. Reflecting on your study habits before AI was highly accessible, how would you rate your ability to recall complex technical concepts? <span class="required">*</span>
+              </label>
+              <div class="likert-scale-wrapper">
+                <div class="scale-labels">
+                  <span>1 - Poor</span>
+                  <span>3 - Average</span>
+                  <span>5 - Excellent</span>
+                </div>
+                <div class="scale-pills">
+                  <label class="scale-pill">
+                    <input type="radio" name="recall_before_ai" value="1" required>
+                    <span>1</span>
+                  </label>
+                  <label class="scale-pill">
+                    <input type="radio" name="recall_before_ai" value="2">
+                    <span>2</span>
+                  </label>
+                  <label class="scale-pill">
+                    <input type="radio" name="recall_before_ai" value="3">
+                    <span>3</span>
+                  </label>
+                  <label class="scale-pill">
+                    <input type="radio" name="recall_before_ai" value="4">
+                    <span>4</span>
+                  </label>
+                  <label class="scale-pill">
+                    <input type="radio" name="recall_before_ai" value="5">
+                    <span>5</span>
+                  </label>
+                </div>
+              </div>
+              <span class="field-error" id="err-recall_before_ai"></span>
+            </div>
+
+            <!-- Question 2b -->
+            <div class="question-row">
+              <label class="q-title">
+                2b. Since actively using AI tools, I feel my long-term retention of academic information has: <span class="required">*</span>
+              </label>
+              <div class="radio-pill-group vertical-on-mobile">
+                <label class="radio-pill">
+                  <input type="radio" name="retention_since_ai" value="Significantly Improved" required>
+                  <span>Significantly Improved</span>
+                </label>
+                <label class="radio-pill">
+                  <input type="radio" name="retention_since_ai" value="Remained the Same">
+                  <span>Remained the Same</span>
+                </label>
+                <label class="radio-pill">
+                  <input type="radio" name="retention_since_ai" value="Slightly Decreased">
+                  <span>Slightly Decreased</span>
+                </label>
+                <label class="radio-pill">
+                  <input type="radio" name="retention_since_ai" value="Significantly Decreased">
+                  <span>Significantly Decreased</span>
+                </label>
+              </div>
+              <span class="field-error" id="err-retention_since_ai"></span>
+            </div>
+
+            <!-- Question 2c -->
+            <div class="question-row">
+              <label class="q-title">
+                2c. "I find myself forgetting information quickly because I know I can just prompt an AI again." <span class="required">*</span>
+              </label>
+              <div class="likert-scale-wrapper">
+                <div class="scale-labels">
+                  <span>1 - Strongly Disagree</span>
+                  <span>3 - Neutral</span>
+                  <span>5 - Strongly Agree</span>
+                </div>
+                <div class="scale-pills">
+                  <label class="scale-pill">
+                    <input type="radio" name="forget_quickly_likert" value="1" required>
+                    <span>1</span>
+                  </label>
+                  <label class="scale-pill">
+                    <input type="radio" name="forget_quickly_likert" value="2">
+                    <span>2</span>
+                  </label>
+                  <label class="scale-pill">
+                    <input type="radio" name="forget_quickly_likert" value="3">
+                    <span>3</span>
+                  </label>
+                  <label class="scale-pill">
+                    <input type="radio" name="forget_quickly_likert" value="4">
+                    <span>4</span>
+                  </label>
+                  <label class="scale-pill">
+                    <input type="radio" name="forget_quickly_likert" value="5">
+                    <span>5</span>
+                  </label>
+                </div>
+              </div>
+              <span class="field-error" id="err-forget_quickly_likert"></span>
+            </div>
+          </div>
+
+          <hr class="form-divider">
+
+          <!-- Section C: Research Depth & Breadth -->
+          <div class="form-block">
+            <div class="block-header">
+              <span class="block-num">C</span>
+              <div>
+                <h3>Section C: Research Depth &amp; Breadth</h3>
+                <p class="block-desc">How AI accessibility has affected your research habits.</p>
+              </div>
+            </div>
+
+            <!-- Question 3a -->
+            <div class="question-row">
+              <label class="q-title">
+                3a. "Before AI, I frequently explored multiple diverse sources (breadth) to find an answer." <span class="required">*</span>
+              </label>
+              <div class="likert-scale-wrapper">
+                <div class="scale-labels">
+                  <span>1 - Strongly Disagree</span>
+                  <span>3 - Neutral</span>
+                  <span>5 - Strongly Agree</span>
+                </div>
+                <div class="scale-pills">
+                  <label class="scale-pill">
+                    <input type="radio" name="breadth_before_ai_likert" value="1" required>
+                    <span>1</span>
+                  </label>
+                  <label class="scale-pill">
+                    <input type="radio" name="breadth_before_ai_likert" value="2">
+                    <span>2</span>
+                  </label>
+                  <label class="scale-pill">
+                    <input type="radio" name="breadth_before_ai_likert" value="3">
+                    <span>3</span>
+                  </label>
+                  <label class="scale-pill">
+                    <input type="radio" name="breadth_before_ai_likert" value="4">
+                    <span>4</span>
+                  </label>
+                  <label class="scale-pill">
+                    <input type="radio" name="breadth_before_ai_likert" value="5">
+                    <span>5</span>
+                  </label>
+                </div>
+              </div>
+              <span class="field-error" id="err-breadth_before_ai_likert"></span>
+            </div>
+
+            <!-- Question 3b -->
+            <div class="question-row">
+              <label class="q-title">
+                3b. "Now, I rely primarily on instant AI summaries rather than reading full technical documentation (depth)." <span class="required">*</span>
+              </label>
+              <div class="likert-scale-wrapper">
+                <div class="scale-labels">
+                  <span>1 - Strongly Disagree</span>
+                  <span>3 - Neutral</span>
+                  <span>5 - Strongly Agree</span>
+                </div>
+                <div class="scale-pills">
+                  <label class="scale-pill">
+                    <input type="radio" name="depth_now_ai_likert" value="1" required>
+                    <span>1</span>
+                  </label>
+                  <label class="scale-pill">
+                    <input type="radio" name="depth_now_ai_likert" value="2">
+                    <span>2</span>
+                  </label>
+                  <label class="scale-pill">
+                    <input type="radio" name="depth_now_ai_likert" value="3">
+                    <span>3</span>
+                  </label>
+                  <label class="scale-pill">
+                    <input type="radio" name="depth_now_ai_likert" value="4">
+                    <span>4</span>
+                  </label>
+                  <label class="scale-pill">
+                    <input type="radio" name="depth_now_ai_likert" value="5">
+                    <span>5</span>
+                  </label>
+                </div>
+              </div>
+              <span class="field-error" id="err-depth_now_ai_likert"></span>
+            </div>
+
+            <!-- Question 3c -->
+            <div class="question-row">
+              <label class="q-title">
+                3c. How has the accessibility of AI impacted your willingness to struggle through difficult academic problems independently? <span class="required">*</span>
+              </label>
+              <div class="radio-pill-group vertical-on-mobile">
+                <label class="radio-pill">
+                  <input type="radio" name="struggle_independence" value="Made me much more independent" required>
+                  <span>Made me much more independent</span>
+                </label>
+                <label class="radio-pill">
+                  <input type="radio" name="struggle_independence" value="No change">
+                  <span>No change</span>
+                </label>
+                <label class="radio-pill">
+                  <input type="radio" name="struggle_independence" value="Made me much less independent">
+                  <span>Made me much less independent</span>
+                </label>
+              </div>
+              <span class="field-error" id="err-struggle_independence"></span>
+            </div>
+          </div>
+
+          <hr class="form-divider">
+
+          <!-- Optional Reflection -->
+          <div class="form-block">
+            <div class="block-header">
+              <span class="block-num"><i class="fa-solid fa-comment-dots"></i></span>
+              <div>
+                <h3>Personal Experience or Thoughts (Optional)</h3>
+                <p class="block-desc">Feel free to type any thoughts on how AI affects your study habits or memory.</p>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <textarea id="personal_reflection" name="personal_reflection" class="form-control text-area" rows="3" placeholder="Share your experience here..."></textarea>
+            </div>
+          </div>
+
+          <!-- Submit Row -->
+          <div class="form-submit-row">
+            <div id="survey-form-alert" class="alert" style="display: none;"></div>
+            
+            <button type="submit" class="btn btn-primary btn-xl" id="btn-submit-survey">
+              <span class="btn-text"><i class="fa-solid fa-paper-plane"></i> Submit Survey Response</span>
+              <span class="btn-spinner" style="display: none;"><i class="fa-solid fa-spinner fa-spin"></i> Submitting...</span>
+            </button>
+            <p class="submit-disclaimer">
+              <i class="fa-solid fa-lock"></i> All responses are securely stored for academic research purposes.
+            </p>
+          </div>
+
+        </form>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Clean Minimal Footer -->
+  <footer class="footer">
+    <div class="container footer-content-simple text-center">
+      <div class="brand-logo justify-center">
+        <div class="brand-icon"><i class="fa-solid fa-brain"></i></div>
+        <div class="brand-text">
+          <span class="brand-title">Research<span class="highlight">Survey</span></span>
+          <span class="brand-sub">Woxsen University</span>
+        </div>
+      </div>
+      <p class="footer-simple-desc">
+        Technical Writing Project by <strong>Kabir</strong> &bull; Industry-Integrated Technical Communication
+      </p>
+      
+      <!-- Discreet Admin Access Link for Kabir -->
+      <div class="footer-admin-wrap">
+        <a href="javascript:void(0)" id="footer-admin-link" class="admin-discreet-link" title="Admin Portal">
+          <i class="fa-solid fa-shield"></i> Admin Access
+        </a>
+      </div>
+      
+      <p class="copyright-txt">&copy; 2026 Kabir. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <!-- ==================================================== -->
+  <!-- MODAL: Discreet Admin Portal & Excel Download       -->
+  <!-- ==================================================== -->
+  <div class="modal-backdrop" id="admin-modal" style="display: none;">
+    <div class="modal-dialog glass-panel">
+      
+      <!-- Modal Header -->
+      <div class="modal-header">
+        <div class="modal-title-group">
+          <i class="fa-solid fa-shield-halved text-accent"></i>
+          <div>
+            <h3>Admin Portal</h3>
+            <p class="modal-subtitle">View survey submissions and export Excel dataset.</p>
+          </div>
+        </div>
+        <button class="btn-close-modal" id="btn-close-admin-modal"><i class="fa-solid fa-xmark"></i></button>
+      </div>
+
+      <!-- Modal Body -->
+      <div class="modal-body">
+        
+        <!-- View 1: Passcode Screen -->
+        <div id="admin-login-view">
+          <div class="admin-login-box">
+            <div class="login-badge"><i class="fa-solid fa-lock"></i> Authorised Access Only</div>
+            <h4>Enter Passcode</h4>
+            <p>Please enter your private research passcode to view submissions.</p>
+
+            <form id="admin-login-form">
+              <div class="form-group">
+                <label for="admin_passcode" class="form-label">Passcode</label>
+                <div class="input-with-icon">
+                  <i class="fa-solid fa-key"></i>
+                  <input type="password" id="admin_passcode" class="form-control" placeholder="••••••••" required autocomplete="current-password">
+                </div>
+              </div>
+              <div id="admin-login-alert" class="alert alert-danger" style="display: none;"></div>
+              <button type="submit" class="btn btn-primary btn-block btn-lg" id="btn-admin-submit-login">
+                <i class="fa-solid fa-right-to-bracket"></i> Enter Portal
+              </button>
+            </form>
+          </div>
+        </div>
+
+        <!-- View 2: Dashboard Screen (Unlocked) -->
+        <div id="admin-dashboard-view" style="display: none;">
+          
+          <!-- Top Stats Bar -->
+          <div class="admin-stats-grid">
+            <div class="admin-stat-card">
+              <span class="stat-title">Total Responses</span>
+              <span class="stat-value text-accent" id="admin-metric-total">0</span>
+            </div>
+            <div class="admin-stat-card">
+              <span class="stat-title">Daily AI Usage</span>
+              <span class="stat-value text-warning" id="admin-metric-daily">0%</span>
+            </div>
+            <div class="admin-stat-card">
+              <span class="stat-title">Retention Decline</span>
+              <span class="stat-value text-danger" id="admin-metric-retention">0%</span>
+            </div>
+            <div class="admin-stat-card">
+              <span class="stat-title">Less Independent</span>
+              <span class="stat-value text-warning" id="admin-metric-independence">0%</span>
+            </div>
+          </div>
+
+          <!-- Action Toolbar -->
+          <div class="admin-toolbar">
+            <div class="search-box">
+              <i class="fa-solid fa-magnifying-glass"></i>
+              <input type="text" id="admin-search-input" placeholder="Search by student name, branch, or phone...">
+            </div>
+
+            <div class="toolbar-actions">
+              <button class="btn btn-accent" id="btn-download-excel-file">
+                <i class="fa-solid fa-file-excel"></i> Download Excel (.xlsx)
+              </button>
+              <button class="btn btn-outline" id="btn-refresh-responses">
+                <i class="fa-solid fa-arrows-rotate"></i> Refresh
+              </button>
+              <button class="btn btn-glass" id="btn-admin-logout">
+                <i class="fa-solid fa-arrow-right-from-bracket"></i> Log Out
+              </button>
+            </div>
+          </div>
+
+          <!-- Responses Table Wrapper -->
+          <div class="admin-table-container">
+            <table class="admin-table" id="admin-responses-table">
+              <thead>
+                <tr>
+                  <th>ID</th>
+                  <th>Student Name</th>
+                  <th>Branch / Course</th>
+                  <th>Phone Number</th>
+                  <th>Year</th>
+                  <th>AI Usage</th>
+                  <th>Pre Recall</th>
+                  <th>Retention Trend</th>
+                  <th>Forgets Quickly</th>
+                  <th>Reflection / Comment</th>
+                </tr>
+              </thead>
+              <tbody id="admin-table-body">
+                <!-- Populated dynamically -->
+              </tbody>
+            </table>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Submission Confirmation Modal -->
+  <div class="modal-backdrop" id="success-modal" style="display: none;">
+    <div class="modal-dialog glass-panel modal-sm text-center">
+      <div class="success-icon-anim">
+        <i class="fa-solid fa-circle-check"></i>
+      </div>
+      <h3>Survey Submitted!</h3>
+      <p id="success-modal-msg">
+        Thank you for contributing to Kabir's Technical Writing research project. Your response has been securely recorded.
+      </p>
+      <div class="success-actions">
+        <button class="btn btn-primary" id="btn-close-success-modal">Close</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Main Application Logic -->
+  <script src="app.js"></script>
+</body>
+</html>
