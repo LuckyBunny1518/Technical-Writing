@@ -18,9 +18,9 @@ function generateExcelReport(responses) {
     'Response ID',
     'Timestamp (UTC)',
     'Full Name',
-    'Course / Branch',
+    'Course / Degree',
     'Phone Number',
-    'B.Tech Year',
+    'Academic Year',
     'AI Usage Frequency',
     'Pre-AI Recall (1-5)',
     'Retention Trend Since AI',
@@ -51,7 +51,7 @@ function generateExcelReport(responses) {
   const sheetData = [
     ['Woxsen University - Industry-Integrated Technical Communication Project'],
     ['Study: The Impact of Generative AI on Cognitive Offloading & Information Retention'],
-    ['Author: Kabir | Target Population: B.Tech Engineering Undergraduates'],
+    ['Author: Kabir | Target Population: University Students Across Diverse Academic Disciplines'],
     [], // Blank line
     headers,
     ...rows
@@ -64,9 +64,9 @@ function generateExcelReport(responses) {
     { wch: 14 }, // Response ID
     { wch: 22 }, // Timestamp
     { wch: 22 }, // Full Name
-    { wch: 36 }, // Course / Branch
+    { wch: 36 }, // Course / Degree
     { wch: 16 }, // Phone Number
-    { wch: 14 }, // B.Tech Year
+    { wch: 16 }, // Academic Year
     { wch: 20 }, // AI Usage Frequency
     { wch: 18 }, // Pre-AI Recall
     { wch: 26 }, // Retention Trend
@@ -107,7 +107,7 @@ function generateExcelReport(responses) {
     ['Generated Automatically via Survey Synchronizer'],
     [],
     ['Metric Description', 'Sample Value', 'Interpretation / Research Reference'],
-    ['Total Survey Respondents', total, 'Undergraduate Engineering sample at Woxsen University'],
+    ['Total Survey Respondents', total, 'Interdisciplinary student sample at Woxsen University'],
     ['Daily Generative AI Usage Rate', `${((dailyUsers / (total || 1)) * 100).toFixed(1)}%`, 'Extremely high saturation of LLM aids in daily assignments'],
     ['Self-Reported Memory Retention Decline', `${((retentionDecline / (total || 1)) * 100).toFixed(1)}%`, 'Aligns with Barcaui (2026) 45-day retention drop experiment'],
     ['Reported Decline in Independent Problem Struggle', `${((struggleLoss / (total || 1)) * 100).toFixed(1)}%`, 'Demonstrates cognitive offloading bypassing deep synthesis'],

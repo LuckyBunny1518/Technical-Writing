@@ -54,7 +54,7 @@
     <div class="container hero-container text-center">
       <div class="badge-pill">
         <span class="pulse-dot"></span>
-        <span>Technical Writing Research Project &bull; B.Tech Engineering</span>
+        <span>Technical Writing Research Project &bull; Interdisciplinary Academic Study</span>
       </div>
 
       <h1 class="hero-title">
@@ -62,7 +62,7 @@
       </h1>
 
       <p class="hero-subtitle">
-        We are researching how tools like <strong>ChatGPT and Gemini</strong> influence long-term information retention and independent problem-solving among engineering students.
+        We are researching how tools like <strong>ChatGPT and Gemini</strong> influence long-term information retention, conceptual recall, and independent problem-solving across diverse university disciplines.
       </p>
 
       <div class="hero-cta-group justify-center">
@@ -197,19 +197,62 @@
               </div>
 
               <div class="form-group">
-                <label for="course" class="form-label">Course / Engineering Branch <span class="required">*</span></label>
+                <label for="course" class="form-label">Course / Degree Program <span class="required">*</span></label>
                 <div class="input-with-icon">
                   <i class="fa-solid fa-graduation-cap"></i>
                   <select id="course" name="course" class="form-control" required>
-                    <option value="" disabled selected>Select your branch...</option>
-                    <option value="B.Tech Computer Science & Engineering">B.Tech Computer Science &amp; Engineering</option>
-                    <option value="B.Tech AI & Data Science">B.Tech AI &amp; Data Science</option>
-                    <option value="B.Tech Cyber Security">B.Tech Cyber Security</option>
-                    <option value="B.Tech Electronics & Communication (ECE)">B.Tech Electronics &amp; Communication (ECE)</option>
-                    <option value="B.Tech Robotics & Artificial Intelligence">B.Tech Robotics &amp; AI</option>
-                    <option value="B.Tech Information Technology">B.Tech Information Technology</option>
-                    <option value="B.Tech Mechanical Engineering">B.Tech Mechanical Engineering</option>
-                    <option value="Other Engineering Program">Other Engineering Program</option>
+                    <option value="" disabled selected>Select your degree field...</option>
+                    
+                    <optgroup label="── Engineering &amp; Technology ──">
+                      <option value="B.Tech Computer Science & Engineering">B.Tech Computer Science &amp; Engineering / IT</option>
+                      <option value="B.Tech AI & Data Science">B.Tech AI, Data Science &amp; Robotics</option>
+                      <option value="B.Tech Mechanical / Civil / Core Engineering">B.Tech Mechanical / Civil / Electrical / Core</option>
+                    </optgroup>
+
+                    <optgroup label="── Architecture &amp; Spatial Design ──">
+                      <option value="B.Arch Architecture & Spatial Planning">B.Arch / M.Arch (Architecture &amp; Spatial Planning)</option>
+                    </optgroup>
+
+                    <optgroup label="── Business &amp; Management ──">
+                      <option value="BBA Business Administration">BBA (Bachelor of Business Administration)</option>
+                      <option value="MBA Management Studies">MBA / Post-Grad Management (Strategy, Marketing, Finance)</option>
+                    </optgroup>
+
+                    <optgroup label="── Design &amp; Creative Arts ──">
+                      <option value="B.Des Design & Visual Arts">B.Des / M.Des (UI/UX, Product, Fashion &amp; Communication)</option>
+                    </optgroup>
+
+                    <optgroup label="── Law &amp; Legal Jurisprudence ──">
+                      <option value="BA LL.B / LL.M Legal Studies">BA LL.B / BBA LL.B / LL.M (Law &amp; Legal Studies)</option>
+                    </optgroup>
+
+                    <optgroup label="── Medicine &amp; Health Sciences ──">
+                      <option value="MBBS / Health Sciences">MBBS / BDS / Health Sciences (Medicine &amp; Surgery)</option>
+                      <option value="B.Pharm Pharmaceutical Sciences">B.Pharm / M.Pharm (Pharmacy &amp; Drug Formulation)</option>
+                    </optgroup>
+
+                    <optgroup label="── Commerce &amp; Financial Accounting ──">
+                      <option value="B.Com Commerce & Finance">B.Com / M.Com (Commerce, Accounting &amp; Taxation)</option>
+                    </optgroup>
+
+                    <optgroup label="── Economics &amp; Econometrics ──">
+                      <option value="B.Sc / B.A. Economics">B.Sc / B.A. Economics (Macro, Micro &amp; Econometrics)</option>
+                    </optgroup>
+
+                    <optgroup label="── Pure Sciences &amp; Life Sciences ──">
+                      <option value="B.Sc Pure Sciences">B.Sc / M.Sc Pure Sciences (Physics, Chemistry, Math)</option>
+                      <option value="Biotechnology & Life Sciences">B.Tech / B.Sc Biotechnology &amp; Life Sciences</option>
+                    </optgroup>
+
+                    <optgroup label="── Social Sciences &amp; Humanities ──">
+                      <option value="B.A. Psychology & Behavioral Science">B.A. / B.Sc Psychology &amp; Behavioral Sciences</option>
+                      <option value="B.A. Liberal Arts & Humanities">B.A. / M.A. Liberal Arts, Literature &amp; Humanities</option>
+                      <option value="Journalism & Mass Communication">B.A. Journalism &amp; Mass Communication / Media</option>
+                    </optgroup>
+
+                    <optgroup label="── Other Disciplines ──">
+                      <option value="Other Degree Program">Other Degree / Interdisciplinary Program</option>
+                    </optgroup>
                   </select>
                 </div>
                 <span class="field-error" id="err-course"></span>
@@ -226,6 +269,14 @@
             </div>
           </div>
 
+          <!-- Dynamic Discipline-Tailored Badge Banner -->
+          <div class="discipline-badge-wrap" id="discipline-badge-wrap" style="display: none;">
+            <div class="discipline-adaptive-badge">
+              <i class="fa-solid fa-wand-magic-sparkles"></i>
+              <span>Questionnaire Context: <span class="disc-name" id="disc-badge-name">Engineering</span> (Tailored to your discipline)</span>
+            </div>
+          </div>
+
           <hr class="form-divider">
 
           <!-- Section A: Demographics & AI Usage -->
@@ -234,14 +285,14 @@
               <span class="block-num">A</span>
               <div>
                 <h3>Section A: Demographics &amp; AI Usage</h3>
-                <p class="block-desc">Basic academic year and frequency of AI usage.</p>
+                <p class="block-desc">Academic standing and baseline frequency of Generative AI usage.</p>
               </div>
             </div>
 
             <!-- Question 1a -->
             <div class="question-row">
-              <label class="q-title">
-                1a. What year of your B.Tech program are you currently in? <span class="required">*</span>
+              <label class="q-title" id="q1a-title">
+                1a. What year of your degree program are you currently in? <span class="required">*</span>
               </label>
               <div class="radio-pill-group">
                 <label class="radio-pill">
@@ -260,14 +311,18 @@
                   <input type="radio" name="year_of_study" value="4th">
                   <span>4th Year</span>
                 </label>
+                <label class="radio-pill">
+                  <input type="radio" name="year_of_study" value="5th / Postgrad">
+                  <span>5th / Postgrad</span>
+                </label>
               </div>
               <span class="field-error" id="err-year_of_study"></span>
             </div>
 
             <!-- Question 1b -->
             <div class="question-row">
-              <label class="q-title">
-                1b. How often do you use Generative AI tools (like ChatGPT or Gemini) for academic research or assignments? <span class="required">*</span>
+              <label class="q-title" id="q1b-title">
+                1b. How often do you use Generative AI tools (like ChatGPT or Gemini) for academic coursework or assignments? <span class="required">*</span>
               </label>
               <div class="radio-pill-group">
                 <label class="radio-pill">
@@ -299,14 +354,14 @@
               <span class="block-num">B</span>
               <div>
                 <h3>Section B: Memory &amp; Retention (Before vs. Now)</h3>
-                <p class="block-desc">Reflect on your memory and retention of technical concepts.</p>
+                <p class="block-desc" id="sec-b-desc">Reflect on your memory and retention of foundational concepts.</p>
               </div>
             </div>
 
             <!-- Question 2a -->
             <div class="question-row">
-              <label class="q-title">
-                2a. Reflecting on your study habits before AI was highly accessible, how would you rate your ability to recall complex technical concepts? <span class="required">*</span>
+              <label class="q-title" id="q2a-title">
+                2a. Reflecting on your study habits before AI was highly accessible, how would you rate your ability to recall complex concepts and formulas? <span class="required">*</span>
               </label>
               <div class="likert-scale-wrapper">
                 <div class="scale-labels">
@@ -342,7 +397,7 @@
 
             <!-- Question 2b -->
             <div class="question-row">
-              <label class="q-title">
+              <label class="q-title" id="q2b-title">
                 2b. Since actively using AI tools, I feel my long-term retention of academic information has: <span class="required">*</span>
               </label>
               <div class="radio-pill-group vertical-on-mobile">
@@ -368,7 +423,7 @@
 
             <!-- Question 2c -->
             <div class="question-row">
-              <label class="q-title">
+              <label class="q-title" id="q2c-title">
                 2c. "I find myself forgetting information quickly because I know I can just prompt an AI again." <span class="required">*</span>
               </label>
               <div class="likert-scale-wrapper">
@@ -412,13 +467,13 @@
               <span class="block-num">C</span>
               <div>
                 <h3>Section C: Research Depth &amp; Breadth</h3>
-                <p class="block-desc">How AI accessibility has affected your research habits.</p>
+                <p class="block-desc" id="sec-c-desc">How AI accessibility has affected your research and study habits.</p>
               </div>
             </div>
 
             <!-- Question 3a -->
             <div class="question-row">
-              <label class="q-title">
+              <label class="q-title" id="q3a-title">
                 3a. "Before AI, I frequently explored multiple diverse sources (breadth) to find an answer." <span class="required">*</span>
               </label>
               <div class="likert-scale-wrapper">
@@ -455,7 +510,7 @@
 
             <!-- Question 3b -->
             <div class="question-row">
-              <label class="q-title">
+              <label class="q-title" id="q3b-title">
                 3b. "Now, I rely primarily on instant AI summaries rather than reading full technical documentation (depth)." <span class="required">*</span>
               </label>
               <div class="likert-scale-wrapper">
@@ -492,7 +547,7 @@
 
             <!-- Question 3c -->
             <div class="question-row">
-              <label class="q-title">
+              <label class="q-title" id="q3c-title">
                 3c. How has the accessibility of AI impacted your willingness to struggle through difficult academic problems independently? <span class="required">*</span>
               </label>
               <div class="radio-pill-group vertical-on-mobile">
@@ -521,7 +576,7 @@
               <span class="block-num"><i class="fa-solid fa-comment-dots"></i></span>
               <div>
                 <h3>Personal Experience or Thoughts (Optional)</h3>
-                <p class="block-desc">Feel free to type any thoughts on how AI affects your study habits or memory.</p>
+                <p class="block-desc" id="reflection-desc">Feel free to type any thoughts on how AI affects your study habits, problem-solving, or memory in your discipline.</p>
               </div>
             </div>
 

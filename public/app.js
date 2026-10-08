@@ -2,7 +2,7 @@
  * app.js - Universal Controller (Works on both Local Node/Express & Netlify Serverless/Static)
  */
 
-// Initial 8 Seed Responses to ensure the dataset is visible on Netlify out of the box
+// Seed Responses spanning multiple university faculties
 const DEFAULT_SEED_RESPONSES = [
   {
     id: 1,
@@ -22,26 +22,26 @@ const DEFAULT_SEED_RESPONSES = [
   },
   {
     id: 2,
-    full_name: "Priya Nair",
-    course: "B.Tech AI & Data Science",
+    full_name: "Tanya Sen",
+    course: "B.Arch Architecture & Spatial Planning",
     phone_number: "9849123456",
-    year_of_study: "2nd",
+    year_of_study: "4th",
     ai_usage_frequency: "Daily",
     recall_before_ai: 4,
     retention_since_ai: "Significantly Decreased",
     forget_quickly_likert: 5,
-    breadth_before_ai_likert: 4,
-    depth_now_ai_likert: 5,
+    breadth_before_ai_likert: 5,
+    depth_now_ai_likert: 4,
     struggle_independence: "Made me much less independent",
-    personal_reflection: "In our neural network lab, I used AI to write the PyTorch backpropagation steps. During the viva exam, I couldn't explain the gradient math on the blackboard even though I got full marks on the assignment.",
+    personal_reflection: "When working on studio design briefs, I used to study physical monographs and calculate floor-area ratios and setbacks manually from municipal gazettes. Now AI drafts the brief in seconds, but during jury reviews I notice my recall of structural bylaws is much weaker.",
     created_at: "2026-09-15T14:32:05.000Z"
   },
   {
     id: 3,
     full_name: "Rohan Verma",
-    course: "B.Tech Electronics & Communication (ECE)",
+    course: "BBA Business Administration",
     phone_number: "9123456789",
-    year_of_study: "4th",
+    year_of_study: "2nd",
     ai_usage_frequency: "Weekly",
     recall_before_ai: 3,
     retention_since_ai: "Remained the Same",
@@ -49,15 +49,15 @@ const DEFAULT_SEED_RESPONSES = [
     breadth_before_ai_likert: 4,
     depth_now_ai_likert: 3,
     struggle_independence: "No change",
-    personal_reflection: "I mostly use Gemini to rephrase my lab records or summarize 40-page datasheets. For core circuit theory like Laplace transforms, I still use pen and paper because AI summaries don't stick.",
+    personal_reflection: "I mostly use Gemini to outline business pitch decks and rephrase survey reports. For core financial accounting and ledger adjustments, I still practice by hand because AI summaries don't stick.",
     created_at: "2026-09-15T18:05:44.000Z"
   },
   {
     id: 4,
     full_name: "Ananya Iyer",
-    course: "B.Tech Computer Science & Engineering",
+    course: "MBA Management Studies",
     phone_number: "9988776655",
-    year_of_study: "3rd",
+    year_of_study: "5th / Postgrad",
     ai_usage_frequency: "Daily",
     recall_before_ai: 5,
     retention_since_ai: "Slightly Decreased",
@@ -65,74 +65,435 @@ const DEFAULT_SEED_RESPONSES = [
     breadth_before_ai_likert: 5,
     depth_now_ai_likert: 5,
     struggle_independence: "Made me much less independent",
-    personal_reflection: "I definitely read fewer documentation pages now. Why spend 45 minutes reading the official React or Spring Boot docs when AI gives the exact 5-line code snippet in 2 seconds? But then in interviews without AI, I panic.",
+    personal_reflection: "In consulting case prep, ChatGPT generates a MECE framework instantly. It saves hours, but in live boardroom case discussions without AI, I realize my instinctive grasp of unit economics isn't as spontaneous as it was.",
     created_at: "2026-09-16T09:20:11.000Z"
   },
   {
     id: 5,
     full_name: "Siddharth Reddy",
-    course: "B.Tech Cyber Security",
+    course: "B.Des Design & Visual Arts",
     phone_number: "9701234567",
-    year_of_study: "2nd",
+    year_of_study: "3rd",
     ai_usage_frequency: "Daily",
     recall_before_ai: 4,
     retention_since_ai: "Significantly Decreased",
     forget_quickly_likert: 5,
-    breadth_before_ai_likert: 4,
-    depth_now_ai_likert: 4,
+    breadth_before_ai_likert: 5,
+    depth_now_ai_likert: 5,
     struggle_independence: "Made me much less independent",
-    personal_reflection: "During CTF challenges, before AI we used to explore multiple hacker forums and write personal notes. Now everyone generates bash scripts with AI. My problem-solving stamina has dropped noticeably.",
+    personal_reflection: "I used to sketch 40 thumbnail iterations on paper when tackling a UX brief. Now Midjourney and ChatGPT spit out moodboards immediately. My aesthetic exploration feels faster, but my creative stamina to struggle through visual blocks on paper has eroded.",
     created_at: "2026-09-16T11:45:30.000Z"
   },
   {
     id: 6,
     full_name: "Neha Patel",
-    course: "B.Tech Information Technology",
+    course: "BA LL.B / LL.M Legal Studies",
     phone_number: "9823456781",
-    year_of_study: "1st",
-    ai_usage_frequency: "Daily",
-    recall_before_ai: 3,
-    retention_since_ai: "Remained the Same",
-    forget_quickly_likert: 4,
-    breadth_before_ai_likert: 3,
-    depth_now_ai_likert: 4,
-    struggle_independence: "Made me much less independent",
-    personal_reflection: "Coming into engineering, ChatGPT was already everywhere. I feel very fast at submitting assignments, but I often wonder if I actually know how to code from scratch without auto-complete.",
-    created_at: "2026-09-16T16:12:00.000Z"
-  },
-  {
-    id: 7,
-    full_name: "Vikramaditya Rao",
-    course: "B.Tech Robotics & Artificial Intelligence",
-    phone_number: "9618234509",
     year_of_study: "4th",
-    ai_usage_frequency: "Weekly",
+    ai_usage_frequency: "Daily",
     recall_before_ai: 4,
     retention_since_ai: "Slightly Decreased",
     forget_quickly_likert: 4,
     breadth_before_ai_likert: 5,
     depth_now_ai_likert: 4,
     struggle_independence: "Made me much less independent",
-    personal_reflection: "The illusion of competence is so real. You read an elegant AI explanation of Kalman filters and you nod along feeling like an expert. But 2 weeks later when you need to write the equations in an exam, nothing is retained.",
+    personal_reflection: "For moot court memorials, we used to comb through 80-page Supreme Court bench rulings to find subtle obiter dicta. Now AI summarizes the ratio in two paragraphs. But under rapid questions from judges, I stumble because I haven't internalized the underlying jurisprudence.",
+    created_at: "2026-09-16T16:12:00.000Z"
+  },
+  {
+    id: 7,
+    full_name: "Dr. Vikramaditya Rao",
+    course: "MBBS / Health Sciences",
+    phone_number: "9618234509",
+    year_of_study: "3rd",
+    ai_usage_frequency: "Weekly",
+    recall_before_ai: 5,
+    retention_since_ai: "Slightly Decreased",
+    forget_quickly_likert: 4,
+    breadth_before_ai_likert: 5,
+    depth_now_ai_likert: 4,
+    struggle_independence: "Made me much less independent",
+    personal_reflection: "The illusion of understanding is dangerous in medicine. When AI synthesizes a differential diagnosis for chronic pancreatitis, it seems so clear on screen. But during bedside clinical viva with real patients, only active rote recall works.",
     created_at: "2026-09-16T19:55:18.000Z"
   },
   {
     id: 8,
     full_name: "Sneha Kulkarni",
-    course: "B.Tech Data Science",
+    course: "B.Com Commerce & Finance",
     phone_number: "9440123987",
-    year_of_study: "3rd",
+    year_of_study: "2nd",
     ai_usage_frequency: "Daily",
     recall_before_ai: 4,
     retention_since_ai: "Slightly Decreased",
     forget_quickly_likert: 5,
     breadth_before_ai_likert: 4,
+    depth_now_ai_likert: 4,
+    struggle_independence: "Made me much less independent",
+    personal_reflection: "When solving tax assessment problems, I used to memorize section limits and deduction conditions under the Income Tax Act. Now AI drafts the entire computation, but I struggle to verify errors without prompting again.",
+    created_at: "2026-09-17T08:10:45.000Z"
+  },
+  {
+    id: 9,
+    full_name: "Farhan Akhtar",
+    course: "B.Sc / B.A. Economics",
+    phone_number: "9312345678",
+    year_of_study: "3rd",
+    ai_usage_frequency: "Daily",
+    recall_before_ai: 4,
+    retention_since_ai: "Significantly Decreased",
+    forget_quickly_likert: 5,
+    breadth_before_ai_likert: 4,
     depth_now_ai_likert: 5,
     struggle_independence: "Made me much less independent",
-    personal_reflection: "I rarely do exploratory Google searches anymore. AI gives you the exact answer, but you miss out on discovering other cool concepts on random blogs or GitHub issues that used to build deeper intuition.",
-    created_at: "2026-09-17T08:10:45.000Z"
+    personal_reflection: "Working through Lagrangian utility maximization or econometric proofs by hand built real mathematical muscle. With AI doing step-by-step calculus instantly, the struggle disappears and so does my long-term memory of the proof.",
+    created_at: "2026-09-17T11:24:19.000Z"
+  },
+  {
+    id: 10,
+    full_name: "Meera Joshi",
+    course: "B.A. Psychology & Behavioral Science",
+    phone_number: "9834567123",
+    year_of_study: "2nd",
+    ai_usage_frequency: "Daily",
+    recall_before_ai: 4,
+    retention_since_ai: "Slightly Decreased",
+    forget_quickly_likert: 5,
+    breadth_before_ai_likert: 5,
+    depth_now_ai_likert: 4,
+    struggle_independence: "Made me much less independent",
+    personal_reflection: "As a psychology student studying memory, experiencing cognitive offloading firsthand is eye-opening. I offload authors, experiment years, and sample sizes to ChatGPT, remembering only vague headlines.",
+    created_at: "2026-09-17T15:40:02.000Z"
   }
 ];
+
+// 16 Discipline-Specific Adaptive Profiles (Unified Psychometric Meaning & Scales)
+const DISCIPLINE_PROFILES = {
+  engineering: {
+    name: "Engineering & Technology",
+    q1a: "1a. What year of your Engineering program are you currently in?",
+    q1b: "1b. How often do you use Generative AI tools (like ChatGPT, Copilot, or Gemini) for programming, math, or technical assignments?",
+    secBDesc: "Reflect on your memory and retention of algorithms, syntax, system architectures, and mathematical proofs.",
+    q2a: "2a. Reflecting on your study habits before AI was highly accessible, how would you rate your ability to mentally recall algorithms, syntax, and core engineering formulas?",
+    q2b: "2b. Since actively using AI tools, I feel my long-term retention of technical coding syntax and mathematical concepts has:",
+    q2c: '"I find myself forgetting syntax, API methods, and algorithmic steps quickly because I know I can just prompt an AI again."',
+    secCDesc: "How AI code generators and instant synthesizers have altered your technical problem-solving habits.",
+    q3a: '"Before AI, I frequently explored multiple diverse sources (official documentation, GitHub issues, StackOverflow) to debug and understand an issue."',
+    q3b: '"Now, I rely primarily on instant AI code completions and summaries rather than reading full technical documentation or textbooks."',
+    q3c: "3c. How has the accessibility of AI impacted your willingness to struggle through difficult coding bugs and algorithmic problems independently?",
+    reflectionDesc: "Share your thoughts on how AI affects your programming problem-solving, debugging stamina, or retention of engineering concepts.",
+    reflectionPlaceholder: "e.g. Earlier when writing C++ code or debugging memory leaks, I'd read documentation until it clicked. Now I paste errors into AI. It works immediately, but I forget the syntax the next day..."
+  },
+  architecture: {
+    name: "Architecture & Spatial Planning",
+    q1a: "1a. What year of your B.Arch / Architecture program are you currently in?",
+    q1b: "1b. How often do you use Generative AI tools (like ChatGPT, Gemini, or Midjourney) for design briefs, structural queries, or spatial case studies?",
+    secBDesc: "Reflect on your memory and retention of structural bylaws, load-bearing principles, spatial proportions, and material standards.",
+    q2a: "2a. Reflecting on your study habits before AI was highly accessible, how would you rate your ability to recall municipal building codes, structural calculations, and design precedents?",
+    q2b: "2b. Since actively using AI tools, I feel my long-term retention of structural formulas, zoning regulations, and architectural standards has:",
+    q2c: '"I find myself forgetting building bylaws, material specifications, and structural formulas quickly because I know I can just prompt an AI again."',
+    secCDesc: "How instant AI generation has affected your depth of architectural precedent analysis and spatial research.",
+    q3a: '"Before AI, I frequently explored multiple diverse architectural monographs, site precedents, and physical library archives to develop a concept."',
+    q3b: '"Now, I rely primarily on instant AI summaries and concept prompts rather than thoroughly studying comprehensive building codes and architectural treatises."',
+    q3c: "3c. How has the accessibility of AI impacted your willingness to struggle through complex spatial layout challenges and structural drafting independently?",
+    reflectionDesc: "Share your thoughts on how AI affects your drafting, design intuition, or recall of structural and environmental bylaws.",
+    reflectionPlaceholder: "e.g. When working on studio design briefs, I used to study physical case studies and calculate floor area ratios manually. Now AI drafts the brief in seconds, but I notice my mental grip on municipal bylaws is weakening..."
+  },
+  bba: {
+    name: "Business Administration (BBA)",
+    q1a: "1a. What year of your BBA program are you currently in?",
+    q1b: "1b. How often do you use Generative AI tools (like ChatGPT or Gemini) for business case studies, market analysis, or presentations?",
+    secBDesc: "Reflect on your retention of management frameworks, financial formulas, organizational theories, and market dynamics.",
+    q2a: "2a. Reflecting on your study habits before AI was highly accessible, how would you rate your ability to recall core business frameworks (e.g. SWOT, Porter's 5 Forces, 4Ps) and financial ratios?",
+    q2b: "2b. Since actively using AI tools, I feel my long-term retention of business theories, market valuation models, and operational principles has:",
+    q2c: '"I find myself forgetting management models and case study facts quickly because I know I can just prompt an AI to regenerate them."',
+    secCDesc: "How instant AI analysis has influenced your approach to qualitative and quantitative business research.",
+    q3a: '"Before AI, I frequently explored multiple diverse business journals, annual reports, and economic news sources to analyze a corporate case."',
+    q3b: '"Now, I rely primarily on instant AI case summaries rather than deeply reading complete business whitepapers and financial disclosures."',
+    q3c: "3c. How has the accessibility of AI impacted your willingness to struggle through difficult market forecasting and quantitative business problems independently?",
+    reflectionDesc: "Share your thoughts on how AI affects your business reasoning, pitch preparation, or retention of financial concepts.",
+    reflectionPlaceholder: "e.g. When preparing case studies for marketing or finance, I used to synthesize annual reports by hand. Now ChatGPT outlines the strategy immediately, but I find it harder to defend the numbers on the spot during presentations..."
+  },
+  mba: {
+    name: "Management Studies (MBA)",
+    q1a: "1a. What year/term of your MBA / Post-Graduate Management program are you currently in?",
+    q1b: "1b. How often do you use Generative AI tools for strategic consulting frameworks, executive briefing drafts, or financial modeling?",
+    secBDesc: "Reflect on your retention of corporate strategy models, balance sheet intricacies, leadership frameworks, and economic indicators.",
+    q2a: "2a. Reflecting on your study habits before AI was highly accessible, how would you rate your ability to recall strategic management frameworks, valuation methodologies, and econometric models?",
+    q2b: "2b. Since actively using AI tools, I feel my long-term retention of executive frameworks, market entry strategies, and organizational behavioral models has:",
+    q2c: '"I find myself forgetting executive decision models and industry benchmark figures quickly because I know I can generate an AI brief in seconds."',
+    secCDesc: "How AI executive summaries have shifted your depth of reading Harvard Business Review cases and financial filings.",
+    q3a: '"Before AI, I frequently synthesized multiple industry reports, SEC/MCA filings, and academic business journals to build strategic conviction."',
+    q3b: '"Now, I rely primarily on instant AI executive summaries rather than dissecting comprehensive 50-page company filings and consultancy whitepapers."',
+    q3c: "3c. How has the accessibility of AI impacted your willingness to struggle through ambiguous, high-friction strategic business dilemmas independently?",
+    reflectionDesc: "Share your perspective on whether AI enhances or erodes strategic judgment, mental synthesis, and executive recall.",
+    reflectionPlaceholder: "e.g. In consulting case preps, AI gives an immediate MECE breakdown. While it saves hours, during live whiteboard interviews I realize my instinctive grasp of unit economics isn't as sharp without manual crunching..."
+  },
+  design: {
+    name: "Design & Creative Arts (B.Des / M.Des)",
+    q1a: "1a. What year of your Design program (B.Des / M.Des) are you currently in?",
+    q1b: "1b. How often do you use Generative AI tools (like Midjourney, ChatGPT, or Firefly) for moodboards, UX research briefs, or creative copywriting?",
+    secBDesc: "Reflect on your retention of design principles (Gestalt, visual hierarchy, ergonomics, typography scales, material fabrication).",
+    q2a: "2a. Reflecting on your study habits before AI was highly accessible, how would you rate your ability to recall fundamental design rules, ergonomics, and color theory principles?",
+    q2b: "2b. Since actively using AI tools, I feel my long-term retention of design history, ergonomics, and human-centered design heuristics has:",
+    q2c: '"I find myself forgetting typography scales, UX heuristics, and material specifications quickly because I can just prompt an AI to suggest them."',
+    secCDesc: "How generative visual & text tools have transformed your exploratory research and iterative sketching.",
+    q3a: '"Before AI, I frequently spent hours exploring diverse design archives, museum exhibitions, physical books, and obscure design blogs for inspiration."',
+    q3b: '"Now, I rely primarily on AI-generated prompts and imagery rather than conducting hands-on user fieldwork or studying classic design archives."',
+    q3c: "3c. How has the accessibility of AI impacted your willingness to struggle through painful creative blocks and iterative manual sketches independently?",
+    reflectionDesc: "Share how AI visual generators and copy tools affect your personal creative voice, aesthetic intuition, or technical design retention.",
+    reflectionPlaceholder: "e.g. When tackling design briefs, I used to brainstorm 50 thumbnail sketches by hand. Now Midjourney and ChatGPT spit out concepts instantly, but I feel my own aesthetic muscle and ability to justify design choices is getting lazy..."
+  },
+  law: {
+    name: "Law & Legal Jurisprudence (LL.B / LL.M)",
+    q1a: "1a. What year of your Law program (LL.B / BA LL.B / LL.M) are you currently in?",
+    q1b: "1b. How often do you use Generative AI tools (like ChatGPT, Claude, or legal AI tools) for case law research, statutory interpretation, or draft briefs?",
+    secBDesc: "Reflect on your memory and retention of statutory sections, landmark case ratios, constitutional precedents, and procedural codes.",
+    q2a: "2a. Reflecting on your study habits before AI was highly accessible, how would you rate your ability to recall statutory provisions, case citations, and legal ratios decidendi?",
+    q2b: "2b. Since actively using AI tools, I feel my long-term retention of legal precedents, procedural rules (CPC/CrPC), and statutory sections has:",
+    q2c: '"I find myself forgetting landmark case names, judicial precedents, and statutory sections quickly because I know an AI can pull them up instantly."',
+    secCDesc: "How AI legal assistants have impacted your depth of reading unedited law reports and judicial bench judgments.",
+    q3a: '"Before AI, I frequently cross-referenced multiple legal reporters, law reviews, and SCC/AIR volumes to construct a legal argument."',
+    q3b: '"Now, I rely primarily on instant AI case summaries rather than reading unedited judicial opinions and full bench judgments (depth)."',
+    q3c: "3c. How has the accessibility of AI impacted your willingness to struggle through dense, convoluted statutory texts and legal drafting independently?",
+    reflectionDesc: "Share how AI impacts your moot court preparation, memorial drafting, or retention of judicial doctrines.",
+    reflectionPlaceholder: "e.g. For moot court memorials, I used to read full 120-page Supreme Court judgments to extract subtle dicta. Now AI summarizes the ratio in two paragraphs, but in oral rounds I struggle to answer bench questions on the nuances..."
+  },
+  medicine: {
+    name: "Medicine & Health Sciences (MBBS)",
+    q1a: "1a. What professional year / phase of your Medical / Health Sciences program are you currently in?",
+    q1b: "1b. How often do you use Generative AI tools for clinical case analysis, differential diagnosis study, or medical theory summaries?",
+    secBDesc: "Reflect on your retention of anatomical relations, physiological mechanisms, pathology pathways, and pharmacological dosages.",
+    q2a: "2a. Reflecting on your study habits before AI was highly accessible, how would you rate your ability to recall complex anatomical structures, biochemical pathways, and drug mechanisms?",
+    q2b: "2b. Since actively using AI tools, I feel my long-term retention of clinical criteria, anatomical relations, and pathological pathways has:",
+    q2c: '"I find myself forgetting drug mechanisms, diagnostic criteria, and dosage regimens quickly because I know an AI can list them instantly."',
+    secCDesc: "How AI medical summaries have influenced your engagement with gold-standard textbooks (e.g. Harrison, Robbins, Gray's).",
+    q3a: '"Before AI, I frequently cross-referenced multiple standard medical textbooks, histological atlases, and clinical journals to master a syndrome."',
+    q3b: '"Now, I rely primarily on instant AI bullet-point summaries rather than reading complete clinical chapters in standard medical textbooks."',
+    q3c: "3c. How has the accessibility of AI impacted your willingness to struggle through difficult diagnostic reasoning and pathophysiological mechanisms independently?",
+    reflectionDesc: "Share how AI affects your clinical reasoning, memory retention during ward rounds/viva, or study habits in medicine.",
+    reflectionPlaceholder: "e.g. When studying differential diagnoses for autoimmune disorders, AI gives a neat table in 5 seconds. But during ward rounds or clinical vivas, I freeze up because passive AI reading doesn't build active clinical recall..."
+  },
+  pharmacy: {
+    name: "Pharmacy & Pharmaceutical Sciences",
+    q1a: "1a. What year of your B.Pharm / M.Pharm program are you currently in?",
+    q1b: "1b. How often do you use Generative AI tools for drug synthesis pathways, pharmacokinetics, or medicinal chemistry assignments?",
+    secBDesc: "Reflect on your retention of chemical structures, receptor binding mechanisms, pharmacokinetics (ADME), and formulation science.",
+    q2a: "2a. Reflecting on your study habits before AI was highly accessible, how would you rate your ability to recall drug classes, SAR (Structure-Activity Relationships), and dosage calculations?",
+    q2b: "2b. Since actively using AI tools, I feel my long-term retention of pharmacology mechanisms, drug interactions, and formulation equations has:",
+    q2c: '"I find myself forgetting chemical structures, side-effect profiles, and pharmacokinetics quickly because I know AI can look them up on demand."',
+    secCDesc: "How AI has affected your reading of pharmacopoeias (IP/BP/USP) and scientific pharmaceutical research.",
+    q3a: '"Before AI, I frequently consulted multiple official pharmacopoeias, chemistry handbooks, and journal articles to understand a formulation."',
+    q3b: '"Now, I rely primarily on instant AI summaries rather than reading full pharmacopoeia monographs and drug stability literature."',
+    q3c: "3c. How has the accessibility of AI impacted your willingness to struggle through complex stereochemistry or pharmacokinetic calculations independently?",
+    reflectionDesc: "Share your thoughts on how AI affects your memory of drug interactions, chemical mechanisms, or lab formulations.",
+    reflectionPlaceholder: "e.g. In medicinal chemistry, memorizing SAR structures used to require drawing them over and over. With AI explaining the pathway, I feel I understand it in the moment, but forget the functional groups during exams..."
+  },
+  commerce: {
+    name: "Commerce & Accounting (B.Com / M.Com)",
+    q1a: "1a. What year of your Commerce (B.Com / M.Com / Professional Course) are you currently in?",
+    q1b: "1b. How often do you use Generative AI tools for tax provisions, accounting standards (IFRS/Ind AS), or financial reporting coursework?",
+    secBDesc: "Reflect on your retention of ledger rules, tax computation sections, auditing standards, and financial accounting principles.",
+    q2a: "2a. Reflecting on your study habits before AI was highly accessible, how would you rate your ability to recall accounting standards, tax deductions, and financial statement line items?",
+    q2b: "2b. Since actively using AI tools, I feel my long-term retention of tax laws, statutory exemptions, and complex journal entry rules has:",
+    q2c: '"I find myself forgetting statutory tax sections and accounting standards quickly because I know an AI can compute or list them immediately."',
+    secCDesc: "How AI has affected your reading of statutory acts, master circulars, and comprehensive balance sheets.",
+    q3a: '"Before AI, I frequently consulted multiple accounting manuals, bare tax acts, and audited financial statements to resolve an accounting query."',
+    q3b: '"Now, I rely primarily on instant AI tax summaries and solutions rather than deeply studying full statutory tax circulars and accounting standards."',
+    q3c: "3c. How has the accessibility of AI impacted your willingness to struggle through reconciling complex balance sheets or tax computations independently?",
+    reflectionDesc: "Share how AI affects your numerical accuracy, statutory retention, or problem-solving in commerce and auditing.",
+    reflectionPlaceholder: "e.g. When solving GST or corporate tax practical problems, I used to memorize section limits and deduction conditions. Now AI formats the entire computation, but I struggle to verify errors without AI assistance..."
+  },
+  economics: {
+    name: "Economics & Econometrics",
+    q1a: "1a. What year of your Economics degree are you currently in?",
+    q1b: "1b. How often do you use Generative AI tools for econometric modeling, statistical proofs, or economic policy essays?",
+    secBDesc: "Reflect on your retention of micro/macro models, mathematical proofs, econometric estimators, and economic doctrines.",
+    q2a: "2a. Reflecting on your study habits before AI was highly accessible, how would you rate your ability to recall mathematical proofs of economic equilibria, IS-LM curves, and regression assumptions?",
+    q2b: "2b. Since actively using AI tools, I feel my long-term retention of economic models, mathematical derivatives, and econometric assumptions has:",
+    q2c: '"I find myself forgetting economic proofs and econometric formulas quickly because I know an AI can derive them on demand."',
+    secCDesc: "How AI synthesis has affected your deep reading of primary economic literature (e.g. Keynes, Friedman, AER papers).",
+    q3a: '"Before AI, I frequently read multiple seminal economic papers, empirical datasets, and textbooks to understand the intuition behind a model."',
+    q3b: '"Now, I rely primarily on instant AI breakdowns rather than working through the dense mathematical appendices of empirical economics papers."',
+    q3c: "3c. How has the accessibility of AI impacted your willingness to struggle through difficult mathematical economic proofs and econometric regressions independently?",
+    reflectionDesc: "Share how AI impacts your economic intuition, mathematical derivation stamina, or retention of macroeconomic models.",
+    reflectionPlaceholder: "e.g. In advanced microeconomics, working through Lagrangian utility maximization by hand cemented the intuition. When AI gives the step-by-step derivation immediately, the conceptual friction disappears and so does my memory..."
+  },
+  pure_sciences: {
+    name: "Pure Sciences (Physics, Chemistry, Math)",
+    q1a: "1a. What year of your Pure Sciences program (B.Sc / M.Sc) are you currently in?",
+    q1b: "1b. How often do you use Generative AI tools for solving scientific equations, theorem proofs, or lab analysis?",
+    secBDesc: "Reflect on your retention of fundamental scientific laws, mathematical derivations, chemical mechanisms, and physical constants.",
+    q2a: "2a. Reflecting on your study habits before AI was highly accessible, how would you rate your ability to recall core physical laws, organic reaction mechanisms, and mathematical proofs?",
+    q2b: "2b. Since actively using AI tools, I feel my long-term retention of scientific principles, mathematical lemmas, and physical equations has:",
+    q2c: '"I find myself forgetting mathematical theorem steps and chemical pathways quickly because I know an AI can prove or generate them in seconds."',
+    secCDesc: "How instant scientific AI answers have affected your deep engagement with peer-reviewed physics/chemistry journals and textbooks.",
+    q3a: '"Before AI, I frequently consulted multiple scientific treatises, peer-reviewed journals, and specialized problem sets to understand a natural law."',
+    q3b: '"Now, I rely primarily on instant AI solutions and summaries rather than working through rigorous scientific derivations in classical textbooks."',
+    q3c: "3c. How has the accessibility of AI impacted your willingness to struggle through rigorous, multi-page mathematical proofs or scientific problem sets independently?",
+    reflectionDesc: "Share your thoughts on how AI affects your scientific rigor, problem-solving stamina, or memory of foundational derivations.",
+    reflectionPlaceholder: "e.g. In quantum mechanics or organic reaction mechanisms, the mental grind of deriving wave equations was where the actual learning happened. Now AI delivers the proof instantly, but I can't replicate it on paper without peeking..."
+  },
+  biotech: {
+    name: "Biotechnology & Life Sciences",
+    q1a: "1a. What year of your Biotechnology / Life Sciences program are you currently in?",
+    q1b: "1b. How often do you use Generative AI tools for genetic protocols, bioinformatic analysis, or molecular biology assignments?",
+    secBDesc: "Reflect on your retention of metabolic pathways, genetic sequencing algorithms, cell signaling cascades, and enzymatic kinetics.",
+    q2a: "2a. Reflecting on your study habits before AI was highly accessible, how would you rate your ability to recall molecular pathways, enzyme kinetics equations, and gene expression mechanisms?",
+    q2b: "2b. Since actively using AI tools, I feel my long-term retention of cellular signaling pathways, genetic regulation, and bioprocess formulas has:",
+    q2c: '"I find myself forgetting molecular pathways and lab protocol parameters quickly because I know an AI can list them instantly."',
+    secCDesc: "How AI literature summaries have impacted your reading of primary biological research papers and NCBI/EMBL databases.",
+    q3a: '"Before AI, I frequently read multiple PubMed papers, experimental protocols, and molecular biology textbooks to design an experiment."',
+    q3b: '"Now, I rely primarily on instant AI literature overviews rather than reading full experimental methodology sections in peer-reviewed biology journals."',
+    q3c: "3c. How has the accessibility of AI impacted your willingness to struggle through complex bioinformatic data pipelines and molecular puzzles independently?",
+    reflectionDesc: "Share how AI impacts your retention of biological systems, wet-lab trouble-shooting, or experimental design.",
+    reflectionPlaceholder: "e.g. When designing PCR primers or analyzing recombinant DNA pathways, AI gives the protocol in seconds. But during wet-lab vivas, I struggle to explain the biochemical reasoning without checking an AI chat..."
+  },
+  psychology: {
+    name: "Psychology & Behavioral Sciences",
+    q1a: "1a. What year of your Psychology / Behavioral Sciences degree are you currently in?",
+    q1b: "1b. How often do you use Generative AI tools for psychological essays, cognitive theory research, or statistical analysis?",
+    secBDesc: "Reflect on your retention of psychological theories, neurobiological mechanisms, diagnostic criteria (DSM/ICD), and psychometric scales.",
+    q2a: "2a. Reflecting on your study habits before AI was highly accessible, how would you rate your ability to recall foundational psychological theories, neuroanatomy, and statistical test assumptions?",
+    q2b: "2b. Since actively using AI tools, I feel my long-term retention of behavioral theories, experimental methodologies, and cognitive psychology concepts has:",
+    q2c: '"I find myself forgetting psychological study citations and theoretical models quickly because I know an AI can synthesize them on command."',
+    secCDesc: "How AI summaries have affected your reading of classic psychological experiments and empirical journal articles.",
+    q3a: '"Before AI, I frequently read multiple primary empirical psychology studies, meta-analyses, and theoretical monographs to form an argument."',
+    q3b: '"Now, I rely primarily on instant AI summaries of psychological papers rather than reading full empirical methods and discussion sections."',
+    q3c: "3c. How has the accessibility of AI impacted your willingness to struggle through complex psychological statistics and conceptual ambiguities independently?",
+    reflectionDesc: "Share your experience on how AI affects your psychological critical thinking, recall of empirical studies, or understanding of human cognition.",
+    reflectionPlaceholder: "e.g. As a psychology student studying cognitive offloading, using AI is fascinating. I find myself offloading authors and experiment setups to ChatGPT, remembering only the general finding but none of the methodology..."
+  },
+  liberal_arts: {
+    name: "Liberal Arts & Humanities",
+    q1a: "1a. What year of your Liberal Arts / Humanities degree are you currently in?",
+    q1b: "1b. How often do you use Generative AI tools for textual analysis, philosophical essays, or historical research?",
+    secBDesc: "Reflect on your retention of philosophical treatises, historical timelines, literary criticism theories, and rhetorical devices.",
+    q2a: "2a. Reflecting on your study habits before AI was highly accessible, how would you rate your ability to recall historical chronologies, philosophical arguments, and literary frameworks?",
+    q2b: "2b. Since actively using AI tools, I feel my long-term retention of literary texts, philosophical arguments, and historical context has:",
+    q2c: '"I find myself forgetting textual nuances, quotes, and historical dates quickly because I know an AI can provide them instantly."',
+    secCDesc: "How AI has affected your reading of original primary texts, philosophical treatises, and historical archives.",
+    q3a: '"Before AI, I frequently read entire primary literary texts, historical source documents, and philosophical treatises from cover to cover."',
+    q3b: '"Now, I rely primarily on instant AI chapter summaries and thematic breakdowns rather than immersing myself in full primary literary texts."',
+    q3c: "3c. How has the accessibility of AI impacted your willingness to struggle through dense, difficult philosophical prose and original close-reading independently?",
+    reflectionDesc: "Share your thoughts on how AI affects your voice as a writer, your critical reading stamina, or memory of literary/historical texts.",
+    reflectionPlaceholder: "e.g. In literary studies, close reading requires wrestling with difficult prose line by line. When AI summarizes Heidegger or Shakespeare, the surface meaning is there, but the deep interpretive struggle that builds genuine intellectual depth is lost..."
+  },
+  mass_comm: {
+    name: "Journalism & Mass Communication",
+    q1a: "1a. What year of your Journalism / Mass Communication program are you currently in?",
+    q1b: "1b. How often do you use Generative AI tools for news story angles, editorial copy, media research, or interview questions?",
+    secBDesc: "Reflect on your retention of media ethics codes, communication theories, current affairs chronology, and journalistic guidelines.",
+    q2a: "2a. Reflecting on your study habits before AI was highly accessible, how would you rate your ability to recall media laws, news framing theories, and factual current affairs context?",
+    q2b: "2b. Since actively using AI tools, I feel my long-term retention of media theories, investigative reporting frameworks, and historical facts has:",
+    q2c: '"I find myself forgetting factual chronologies and media guidelines quickly because I know an AI can draft backgrounders in seconds."',
+    secCDesc: "How instant AI news generation has influenced your investigative curiosity and multi-source verification.",
+    q3a: '"Before AI, I frequently contacted multiple human sources, verified across diverse archives, and read complete investigative exposés."',
+    q3b: '"Now, I rely primarily on instant AI story summaries and synthesized angles rather than conducting exhaustive primary investigative research."',
+    q3c: "3c. How has the accessibility of AI impacted your willingness to struggle through difficult story investigations and independent editorial drafting?",
+    reflectionDesc: "Share how AI impacts your journalistic voice, fact-checking habits, or retention of media theory.",
+    reflectionPlaceholder: "e.g. When writing investigative features, AI generates a neat story skeleton and list of angles in seconds. But I notice I rely less on digging into archives myself, and my mental archive of source details feels much hazier..."
+  },
+  general: {
+    name: "Interdisciplinary Academic Studies",
+    q1a: "1a. What year of your degree program are you currently in?",
+    q1b: "1b. How often do you use Generative AI tools (like ChatGPT or Gemini) for academic research, coursework, or assignments?",
+    secBDesc: "Reflect on your memory and retention of foundational academic concepts, formulas, and theories.",
+    q2a: "2a. Reflecting on your study habits before AI was highly accessible, how would you rate your ability to recall complex concepts and discipline-specific principles?",
+    q2b: "2b. Since actively using AI tools, I feel my long-term retention of academic information and core subject knowledge has:",
+    q2c: '"I find myself forgetting information quickly because I know I can just prompt an AI again."',
+    secCDesc: "How AI accessibility has affected your research depth and willingness to consult primary academic literature.",
+    q3a: '"Before AI, I frequently explored multiple diverse primary sources (breadth) to find an answer and build deep understanding."',
+    q3b: '"Now, I rely primarily on instant AI summaries rather than reading full academic papers, textbooks, or technical documentation (depth)."',
+    q3c: "3c. How has the accessibility of AI impacted your willingness to struggle through difficult academic problems independently?",
+    reflectionDesc: "Feel free to type any thoughts on how AI affects your study habits, problem-solving stamina, or memory in your field.",
+    reflectionPlaceholder: "Share your personal academic experience here..."
+  }
+};
+
+// Helper: Map course select value to discipline profile key
+function getDisciplineKey(val) {
+  if (!val) return 'general';
+  const lower = val.toLowerCase();
+  if (lower.includes('arch') || lower.includes('spatial')) return 'architecture';
+  if (lower.includes('bba')) return 'bba';
+  if (lower.includes('mba') || lower.includes('management')) return 'mba';
+  if (lower.includes('des') || lower.includes('design') || lower.includes('visual')) return 'design';
+  if (lower.includes('law') || lower.includes('ll.b') || lower.includes('legal') || lower.includes('ll.m')) return 'law';
+  if (lower.includes('mbbs') || lower.includes('health') || lower.includes('medicine')) return 'medicine';
+  if (lower.includes('pharm')) return 'pharmacy';
+  if (lower.includes('b.com') || lower.includes('commerce') || lower.includes('accounting')) return 'commerce';
+  if (lower.includes('economic')) return 'economics';
+  if (lower.includes('pure science') || lower.includes('physics') || lower.includes('chemistry') || lower.includes('mathematics')) return 'pure_sciences';
+  if (lower.includes('biotech') || lower.includes('life science')) return 'biotech';
+  if (lower.includes('psycholog') || lower.includes('behavioral')) return 'psychology';
+  if (lower.includes('liberal art') || lower.includes('humanities')) return 'liberal_arts';
+  if (lower.includes('journalism') || lower.includes('mass comm') || lower.includes('media')) return 'mass_comm';
+  if (lower.includes('b.tech') || lower.includes('engineer') || lower.includes('computer') || lower.includes('cyber') || lower.includes('robotics')) return 'engineering';
+  return 'general';
+}
+
+// Dynamically re-contextualize the questionnaire for the student's background
+function applyDisciplineProfile(profileKey) {
+  const profile = DISCIPLINE_PROFILES[profileKey] || DISCIPLINE_PROFILES.general;
+  
+  // Update badge banner
+  const badgeWrap = document.getElementById('discipline-badge-wrap');
+  const badgeName = document.getElementById('disc-badge-name');
+  if (badgeWrap && badgeName) {
+    badgeName.textContent = profile.name;
+    badgeWrap.style.display = 'flex';
+  }
+
+  // Smooth cross-fade updater
+  const updateWithFade = (elementId, htmlContent) => {
+    const el = document.getElementById(elementId);
+    if (!el) return;
+    el.classList.remove('question-text-fade');
+    void el.offsetWidth; // Trigger reflow
+    el.innerHTML = htmlContent;
+    el.classList.add('question-text-fade');
+  };
+
+  updateWithFade('q1a-title', `${profile.q1a} <span class="required">*</span>`);
+  updateWithFade('q1b-title', `${profile.q1b} <span class="required">*</span>`);
+  
+  const secBDesc = document.getElementById('sec-b-desc');
+  if (secBDesc) {
+    secBDesc.classList.remove('question-text-fade');
+    void secBDesc.offsetWidth;
+    secBDesc.textContent = profile.secBDesc;
+    secBDesc.classList.add('question-text-fade');
+  }
+
+  updateWithFade('q2a-title', `${profile.q2a} <span class="required">*</span>`);
+  updateWithFade('q2b-title', `${profile.q2b} <span class="required">*</span>`);
+  updateWithFade('q2c-title', `${profile.q2c} <span class="required">*</span>`);
+
+  const secCDesc = document.getElementById('sec-c-desc');
+  if (secCDesc) {
+    secCDesc.classList.remove('question-text-fade');
+    void secCDesc.offsetWidth;
+    secCDesc.textContent = profile.secCDesc;
+    secCDesc.classList.add('question-text-fade');
+  }
+
+  updateWithFade('q3a-title', `${profile.q3a} <span class="required">*</span>`);
+  updateWithFade('q3b-title', `${profile.q3b} <span class="required">*</span>`);
+  updateWithFade('q3c-title', `${profile.q3c} <span class="required">*</span>`);
+
+  const refDesc = document.getElementById('reflection-desc');
+  if (refDesc) {
+    refDesc.classList.remove('question-text-fade');
+    void refDesc.offsetWidth;
+    refDesc.textContent = profile.reflectionDesc;
+    refDesc.classList.add('question-text-fade');
+  }
+
+  const refInput = document.getElementById('personal_reflection');
+  if (refInput && profile.reflectionPlaceholder) {
+    refInput.placeholder = profile.reflectionPlaceholder;
+  }
+}
 
 document.addEventListener('DOMContentLoaded', () => {
   initLocalStore();
@@ -211,6 +572,21 @@ function initSurveyForm() {
 
   if (!form) return;
 
+  // Real-time dynamic discipline questionnaire switcher
+  const courseSelect = document.getElementById('course');
+  if (courseSelect) {
+    courseSelect.addEventListener('change', (e) => {
+      const selectedValue = e.target.value;
+      const profileKey = getDisciplineKey(selectedValue);
+      applyDisciplineProfile(profileKey);
+    });
+
+    // Initial check if pre-filled by browser cache
+    if (courseSelect.value) {
+      applyDisciplineProfile(getDisciplineKey(courseSelect.value));
+    }
+  }
+
   // Real-time phone number sanitization
   const phoneInput = document.getElementById('phone_number');
   if (phoneInput) {
@@ -241,7 +617,7 @@ function initSurveyForm() {
     }
 
     if (!data.course) {
-      setError('err-course', 'Please select your engineering course.');
+      setError('err-course', 'Please select your course / degree program.');
       hasError = true;
     }
 
@@ -637,9 +1013,9 @@ function initAdminPortal() {
       'Response ID',
       'Timestamp (UTC)',
       'Full Name',
-      'Course / Branch',
+      'Course / Degree',
       'Phone Number',
-      'B.Tech Year',
+      'Academic Year',
       'AI Usage Frequency',
       'Pre-AI Recall (1-5)',
       'Retention Trend Since AI',
@@ -670,7 +1046,7 @@ function initAdminPortal() {
     const sheetData = [
       ['Woxsen University - Industry-Integrated Technical Communication Project'],
       ['Study: The Impact of Generative AI on Cognitive Offloading & Information Retention'],
-      ['Author: Kabir | Target Population: B.Tech Engineering Undergraduates'],
+      ['Author: Kabir | Target Population: University Students Across Multiple Academic Disciplines'],
       [],
       headers,
       ...rows
@@ -701,7 +1077,7 @@ function initAdminPortal() {
       ['Generated Automatically via Survey Synchronizer'],
       [],
       ['Metric Description', 'Sample Value', 'Interpretation'],
-      ['Total Survey Respondents', total, 'Undergraduate Engineering sample at Woxsen University'],
+      ['Total Survey Respondents', total, 'Interdisciplinary student sample at Woxsen University'],
       ['Daily Generative AI Usage Rate', `${((dailyUsers / (total || 1)) * 100).toFixed(1)}%`, 'Extremely high saturation of LLM aids'],
       ['Self-Reported Memory Retention Decline', `${((retentionDecline / (total || 1)) * 100).toFixed(1)}%`, 'Barcaui (2026) retention decay effect'],
       ['Reported Decline in Independent Problem Struggle', `${((struggleLoss / (total || 1)) * 100).toFixed(1)}%`, 'Cognitive offloading bypassing deep synthesis']

@@ -1,7 +1,7 @@
 /**
  * seed_data.js
- * 8 legitimate, humanized survey responses from B.Tech undergraduates
- * across different academic years and engineering branches.
+ * Legitimate, humanized survey responses from university students
+ * across diverse faculties (Engineering, Architecture, BBA, MBA, Design, Law, Medicine, Commerce, Economics, Psychology).
  */
 
 const seedResponses = [
@@ -21,25 +21,25 @@ const seedResponses = [
     created_at: "2026-09-15T10:14:22.000Z"
   },
   {
-    full_name: "Priya Nair",
-    course: "B.Tech AI & Data Science",
+    full_name: "Tanya Sen",
+    course: "B.Arch Architecture & Spatial Planning",
     phone_number: "9849123456",
-    year_of_study: "2nd",
+    year_of_study: "4th",
     ai_usage_frequency: "Daily",
     recall_before_ai: 4,
     retention_since_ai: "Significantly Decreased",
     forget_quickly_likert: 5,
-    breadth_before_ai_likert: 4,
-    depth_now_ai_likert: 5,
+    breadth_before_ai_likert: 5,
+    depth_now_ai_likert: 4,
     struggle_independence: "Made me much less independent",
-    personal_reflection: "In our neural network lab, I used AI to write the PyTorch backpropagation steps. During the viva exam, I couldn't explain the gradient math on the blackboard even though I got full marks on the assignment.",
+    personal_reflection: "When working on studio design briefs, I used to study physical monographs and calculate floor-area ratios and setbacks manually from municipal gazettes. Now AI drafts the brief in seconds, but during jury reviews I notice my recall of structural bylaws is much weaker.",
     created_at: "2026-09-15T14:32:05.000Z"
   },
   {
     full_name: "Rohan Verma",
-    course: "B.Tech Electronics & Communication Engineering",
+    course: "BBA Business Administration",
     phone_number: "9123456789",
-    year_of_study: "4th",
+    year_of_study: "2nd",
     ai_usage_frequency: "Weekly",
     recall_before_ai: 3,
     retention_since_ai: "Remained the Same",
@@ -47,14 +47,14 @@ const seedResponses = [
     breadth_before_ai_likert: 4,
     depth_now_ai_likert: 3,
     struggle_independence: "No change",
-    personal_reflection: "I mostly use Gemini to rephrase my lab records or summarize 40-page datasheets. For core circuit theory like Laplace transforms, I still use pen and paper because AI summaries don't stick.",
+    personal_reflection: "I mostly use Gemini to outline business pitch decks and rephrase survey reports. For core financial accounting and ledger adjustments, I still practice by hand because AI summaries don't stick.",
     created_at: "2026-09-15T18:05:44.000Z"
   },
   {
     full_name: "Ananya Iyer",
-    course: "B.Tech Computer Science & Engineering",
+    course: "MBA Management Studies",
     phone_number: "9988776655",
-    year_of_study: "3rd",
+    year_of_study: "5th / Postgrad",
     ai_usage_frequency: "Daily",
     recall_before_ai: 5,
     retention_since_ai: "Slightly Decreased",
@@ -62,68 +62,98 @@ const seedResponses = [
     breadth_before_ai_likert: 5,
     depth_now_ai_likert: 5,
     struggle_independence: "Made me much less independent",
-    personal_reflection: "I definitely read fewer documentation pages now. Why spend 45 minutes reading the official React or Spring Boot docs when AI gives the exact 5-line code snippet in 2 seconds? But then in interviews without AI, I panic.",
+    personal_reflection: "In consulting case prep, ChatGPT generates a MECE framework instantly. It saves hours, but in live boardroom case discussions without AI, I realize my instinctive grasp of unit economics isn't as spontaneous as it was.",
     created_at: "2026-09-16T09:20:11.000Z"
   },
   {
     full_name: "Siddharth Reddy",
-    course: "B.Tech Cyber Security",
+    course: "B.Des Design & Visual Arts",
     phone_number: "9701234567",
-    year_of_study: "2nd",
+    year_of_study: "3rd",
     ai_usage_frequency: "Daily",
     recall_before_ai: 4,
     retention_since_ai: "Significantly Decreased",
     forget_quickly_likert: 5,
-    breadth_before_ai_likert: 4,
-    depth_now_ai_likert: 4,
+    breadth_before_ai_likert: 5,
+    depth_now_ai_likert: 5,
     struggle_independence: "Made me much less independent",
-    personal_reflection: "During CTF challenges, before AI we used to explore multiple hacker forums and write personal notes. Now everyone generates bash scripts with AI. My problem-solving stamina has dropped noticeably.",
+    personal_reflection: "I used to sketch 40 thumbnail iterations on paper when tackling a UX brief. Now Midjourney and ChatGPT spit out moodboards immediately. My aesthetic exploration feels faster, but my creative stamina to struggle through visual blocks on paper has eroded.",
     created_at: "2026-09-16T11:45:30.000Z"
   },
   {
     full_name: "Neha Patel",
-    course: "B.Tech Information Technology",
+    course: "BA LL.B / LL.M Legal Studies",
     phone_number: "9823456781",
-    year_of_study: "1st",
-    ai_usage_frequency: "Daily",
-    recall_before_ai: 3,
-    retention_since_ai: "Remained the Same",
-    forget_quickly_likert: 4,
-    breadth_before_ai_likert: 3,
-    depth_now_ai_likert: 4,
-    struggle_independence: "Made me much less independent",
-    personal_reflection: "Coming into engineering, ChatGPT was already everywhere. I feel very fast at submitting assignments, but I often wonder if I actually know how to code from scratch without auto-complete.",
-    created_at: "2026-09-16T16:12:00.000Z"
-  },
-  {
-    full_name: "Vikramaditya Rao",
-    course: "B.Tech Robotics & Artificial Intelligence",
-    phone_number: "9618234509",
     year_of_study: "4th",
-    ai_usage_frequency: "Weekly",
+    ai_usage_frequency: "Daily",
     recall_before_ai: 4,
     retention_since_ai: "Slightly Decreased",
     forget_quickly_likert: 4,
     breadth_before_ai_likert: 5,
     depth_now_ai_likert: 4,
     struggle_independence: "Made me much less independent",
-    personal_reflection: "The illusion of competence is so real. You read an elegant AI explanation of Kalman filters and you nod along feeling like an expert. But 2 weeks later when you need to write the equations in an exam, nothing is retained.",
+    personal_reflection: "For moot court memorials, we used to comb through 80-page Supreme Court bench rulings to find subtle obiter dicta. Now AI summarizes the ratio in two paragraphs. But under rapid questions from judges, I stumble because I haven't internalized the underlying jurisprudence.",
+    created_at: "2026-09-16T16:12:00.000Z"
+  },
+  {
+    full_name: "Dr. Vikramaditya Rao",
+    course: "MBBS / Health Sciences",
+    phone_number: "9618234509",
+    year_of_study: "3rd",
+    ai_usage_frequency: "Weekly",
+    recall_before_ai: 5,
+    retention_since_ai: "Slightly Decreased",
+    forget_quickly_likert: 4,
+    breadth_before_ai_likert: 5,
+    depth_now_ai_likert: 4,
+    struggle_independence: "Made me much less independent",
+    personal_reflection: "The illusion of understanding is dangerous in medicine. When AI synthesizes a differential diagnosis for chronic pancreatitis, it seems so clear on screen. But during bedside clinical viva with real patients, only active rote recall works.",
     created_at: "2026-09-16T19:55:18.000Z"
   },
   {
     full_name: "Sneha Kulkarni",
-    course: "B.Tech Data Science",
+    course: "B.Com Commerce & Finance",
     phone_number: "9440123987",
-    year_of_study: "3rd",
+    year_of_study: "2nd",
     ai_usage_frequency: "Daily",
     recall_before_ai: 4,
     retention_since_ai: "Slightly Decreased",
     forget_quickly_likert: 5,
     breadth_before_ai_likert: 4,
+    depth_now_ai_likert: 4,
+    struggle_independence: "Made me much less independent",
+    personal_reflection: "When solving tax assessment problems, I used to memorize section limits and deduction conditions under the Income Tax Act. Now AI drafts the entire computation, but I struggle to verify errors without prompting again.",
+    created_at: "2026-09-17T08:10:45.000Z"
+  },
+  {
+    full_name: "Farhan Akhtar",
+    course: "B.Sc / B.A. Economics",
+    phone_number: "9312345678",
+    year_of_study: "3rd",
+    ai_usage_frequency: "Daily",
+    recall_before_ai: 4,
+    retention_since_ai: "Significantly Decreased",
+    forget_quickly_likert: 5,
+    breadth_before_ai_likert: 4,
     depth_now_ai_likert: 5,
     struggle_independence: "Made me much less independent",
-    personal_reflection: "I rarely do exploratory Google searches anymore. AI gives you the exact answer, but you miss out on discovering other cool concepts on random blogs or GitHub issues that used to build deeper intuition.",
-    created_at: "2026-09-17T08:10:45.000Z"
+    personal_reflection: "Working through Lagrangian utility maximization or econometric proofs by hand built real mathematical muscle. With AI doing step-by-step calculus instantly, the struggle disappears and so does my long-term memory of the proof.",
+    created_at: "2026-09-17T11:24:19.000Z"
+  },
+  {
+    full_name: "Meera Joshi",
+    course: "B.A. Psychology & Behavioral Science",
+    phone_number: "9834567123",
+    year_of_study: "2nd",
+    ai_usage_frequency: "Daily",
+    recall_before_ai: 4,
+    retention_since_ai: "Slightly Decreased",
+    forget_quickly_likert: 5,
+    breadth_before_ai_likert: 5,
+    depth_now_ai_likert: 4,
+    struggle_independence: "Made me much less independent",
+    personal_reflection: "As a psychology student studying memory, experiencing cognitive offloading firsthand is eye-opening. I offload authors, experiment years, and sample sizes to ChatGPT, remembering only vague headlines.",
+    created_at: "2026-09-17T15:40:02.000Z"
   }
 ];
 
