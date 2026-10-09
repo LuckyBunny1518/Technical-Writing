@@ -7,12 +7,23 @@ const db = require('./db');
 const seedResponses = require('./seed_data');
 const { generateExcelReport } = require('./excel_manager');
 
-function initDatabase() {
+function initDatabase(forceReseed = false) {
   const currentCount = db.count();
   console.log(`Current records in DB: ${currentCount}`);
 
-  if (currentCount === 0) {
-    console.log('Seeding 8 legitimate humanized responses...');
+  if (currentCount === 0 || forceReseed || currentCount < seedResponses.length) {
+    console.log(`Seeding all ${seedResponses.length} student responses...`);
+    // Delete existing DB file and JSON file if reseeding to ensure clean state
+    const fs = require('fs');
+    const path = require('path');
+    const dbFile = path.join(__dirname, 'data', 'survey_database.db');
+    const jsonFile = path.join(__dirname, 'data', 'responses.json');
+    if (fs.existsSync(dbFile)) {
+      try { fs.unlinkSync(dbFile); } catch (e) { /* ignore */ }
+    }
+    if (fs.existsSync(jsonFile)) {
+      try { fs.unlinkSync(jsonFile); } catch (e) { /* ignore */ }
+    }
     for (const item of seedResponses) {
       db.insert(item);
     }
